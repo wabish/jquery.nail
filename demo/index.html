@@ -3,17 +3,47 @@
     <head>
         <meta charset="utf-8">
         <title>jquery.nail demo - cobish</title>
+        <link rel="stylesheet" href="./css/index.css" />
     </head>
     <body>
-        <div class="test" style="height:100px;background:red;"></div>
-        <div class="test" style="height:200px;background:green;"></div>
-        <div class="test" style="height:50px;background:blue;"></div>
+        <h1><a href="https://github.com/cobish/jquery.nail">jquery.nail</a></h1>
+        <div class="main-box">
+            <div class="left-box">
+                <ul id="leftNav">
+                    <li>one</li>
+                    <li>two</li>
+                    <li>three</li>
+                    <li>four</li>
+                    <li>five</li>
+                    <li>six</li>
+                </ul>
+            </div>
+            <div class="right-box">
+                <div><p>your content</p></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
 
         <script src="../dist/lib/jquery-1.11.1.min.js"></script>
         <script src="../src/jquery.nail.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('.test').nail();
+                $('#leftNav').nail({
+                    topCB: function(elem) {
+                        elem.find('li:nth-child(3)').html('我在顶部');
+                        elem.css('background', '#869EB5');
+                    },
+                    fixedCB: function(elem) {
+                        elem.find('li:nth-child(3)').html('我被固定住了');
+                        elem.css('background', 'rgb(34, 89, 58)');
+                    },
+                    bottomCB: function(elem) {
+                        elem.find('li:nth-child(3)').html('我到底部了');
+                        elem.css('background', '#000');
+                    }
+                });
             });
         </script>
     </body>
