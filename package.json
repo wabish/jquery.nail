@@ -1,0 +1,26 @@
+{
+  "name": "jquery.nail",
+  "version": "1.0.0",
+  "description": "a jquery plugin of nail",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cobish/jquery.nail"
+  },
+  "author": {
+    "name": "cobish",
+    "email": "cobish110@gmail.com",
+    "url": "http://cobish.github.io",
+    "github": "https://github.com/cobish"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
+  },
+  "bugs": {
+    "url": "https://github.com/cobish/jquery.nail/issues"
+  },
+  "homepage": "https://github.com/cobish/jquery.nail#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
