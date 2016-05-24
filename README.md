@@ -8,7 +8,7 @@
 
 ## Browser Support
 
-``chrome`` ``firefox``
+``Chrome`` ``Firefox`` ``Safari``
 
 ## How to use
 
