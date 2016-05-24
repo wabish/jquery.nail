@@ -1,10 +1,11 @@
 {
   "name": "jquery.nail",
   "version": "1.0.0",
-  "description": "a jquery plugin of nail",
+  "title": "A simple jQuery nail plugin.",
+  "description": "A jQuery plugin that enables a label to be nailed in the loacation you want",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cobish/jquery.nail"
+    "url": "https://github.com/cobish/jquery.nail.git"
   },
   "author": {
     "name": "cobish",
@@ -19,7 +20,11 @@
   "bugs": {
     "url": "https://github.com/cobish/jquery.nail/issues"
   },
-  "homepage": "https://github.com/cobish/jquery.nail#readme",
+  "homepage": "https://github.com/cobish/jquery.nail",
+  "keywords": [
+      "jQuery",
+      "jquery.nail"
+  ],
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.9.1",

@@ -1,21 +1,80 @@
 /*!
  * jquery.nail v1.0.0
- * Url: https://github.com/cobish/jquery.nail#readme
- * Copyright (c) cobish - http://cobish.github.io
- * License: MIT
+ * A simple jQuery nail plugin.
+ * https://github.com/cobish/jquery.nail
+
+ * Copyright (c) 2016, cobish
+ * Released under the MIT license.
  */
 (function($, window, document) {
+    $.fn.nail = function(options) {
+        var _this = this;
 
-    $.fn.nail = function(option) {
-        var max = 0;
+        var defaults = {
+            subElem: _this.parent(),
+            topCB: null,
+            fixedCB: null,
+            bottomCB: null
+        }
 
-        this.each(function() {
-            max = Math.max(max, $(this).height());
-        });
+        var options = $.extend(defaults, options || {});
 
-        console.log('最大高度：' + max);
+        var oWindow = $(window),
+            oDocument = $(document);
 
-        return this;
+        var subTop = options.subElem.offset().top,
+            subHeight = options.subElem.height(),
+            nailTop = _this.offset().top,
+            nailHeight = _this.height();
+
+        function handleScroll() {
+            var scrollTop = oWindow.scrollTop();
+
+            // 滚到顶部
+            if (scrollTop <= subTop) {
+                _this.css({
+                    position: 'absolute',
+                    top: 0
+                });
+
+                if (options.topCB && typeof options.topCB === 'function') {
+                    options.topCB(_this);
+                }
+
+                return;
+            }
+
+            // 滚到底部
+            if (scrollTop >= subTop + subHeight - nailHeight) {
+                _this.css({
+                    position: 'absolute',
+                    top: subHeight - nailHeight + 'px'
+                });
+
+                if (options.bottomCB && typeof options.bottomCB === 'function') {
+                    options.bottomCB(_this);
+                }
+
+                return;
+            }
+
+            _this.css({
+                position: 'fixed',
+                top: 0
+            });
+
+            if (options.fixedCB && typeof options.fixedCB === 'function') {
+                options.fixedCB(_this);
+            }
+        }
+
+        function handleResize() {
+
+        }
+
+        oWindow.on('scroll', handleScroll);
+        oWindow.on('resize', handleResize);
+
+        return _this;
     };
-
 })(jQuery, window, document);

@@ -31,15 +31,15 @@
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#leftNav').nail({
-                    topCB: function(elem) {
+                    onTop: function(elem) {
                         elem.find('li:nth-child(3)').html('我在顶部');
                         elem.css('background', '#869EB5');
                     },
-                    fixedCB: function(elem) {
+                    onFixed: function(elem) {
                         elem.find('li:nth-child(3)').html('我被固定住了');
                         elem.css('background', 'rgb(34, 89, 58)');
                     },
-                    bottomCB: function(elem) {
+                    onBottom: function(elem) {
                         elem.find('li:nth-child(3)').html('我到底部了');
                         elem.css('background', '#000');
                     }

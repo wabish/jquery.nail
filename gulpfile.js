@@ -16,9 +16,11 @@ var config = {
 var banner = [
     '/*!',
     ' * <%= pkg.name %> v<%= pkg.version %>',
-    ' * Url: <%= pkg.homepage %>',
-    ' * Copyright (c) <%= pkg.author.name %> - <%= pkg.author.url %>',
-    ' * License: <%= pkg.license.name %>',
+    ' * <%= pkg.title %>',
+    ' * <%= pkg.homepage %>',
+    '',
+    ' * Copyright (c) 2016, <%= pkg.author.name %>',
+    ' * Released under the <%= pkg.license.name %> license.',
     ' */',
     ''
 ].join('\n');
