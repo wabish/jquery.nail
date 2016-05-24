@@ -23,9 +23,10 @@
             }, options || {});
 
             this.defaults = {
-                elemTop: this.options.elem.offset().top,
+                elemTop: 0,
                 elemHeight: this.options.elem.height(),
-                subElemTop: this.options.subElem.offset().top,
+                subElemTop: 0,
+                subElemLeft: 0,
                 subElemHeight: this.options.subElem.height()
             };
 
@@ -41,16 +42,20 @@
 
         _handleScroll: function() {
             var scrollTop = this.options.oWindow.scrollTop(),
+                scrollLeft = this.options.oWindow.scrollLeft(),
                 elemHeight = this.defaults.elemHeight,
-                subElemTop = this.defaults.subElemTop,
+                subElemTop = this.options.subElem.offset().top,
+                subElemLeft = this.options.subElem.offset().left,
                 subElemHeight = this.defaults.subElemHeight,
-                elem = this.options.elem;
+                elem = this.options.elem,
+                subElem = this.options.subElem;
 
             // 滚到顶部
             if (scrollTop <= subElemTop) {
                 elem.css({
                     position: 'absolute',
-                    top: 0
+                    top: 0,
+                    left: parseFloat(elem.css('marginLeft')) + parseFloat(elem.css('paddingLeft')) + 'px'
                 });
 
                 if (this.options.onTop && typeof this.options.onTop === 'function') {
@@ -64,7 +69,8 @@
             if (scrollTop >= subElemTop + subElemHeight - elemHeight) {
                 elem.css({
                     position: 'absolute',
-                    top: subElemHeight - elemHeight + 'px'
+                    top: subElemHeight - elemHeight + 'px',
+                    left: parseFloat(elem.css('marginLeft')) + parseFloat(elem.css('paddingLeft')) + 'px'
                 });
 
                 if (this.options.onBottom && typeof this.options.onBottom === 'function') {
@@ -76,7 +82,8 @@
 
             elem.css({
                 position: 'fixed',
-                top: 0
+                top: 0,
+                left: subElemLeft + parseFloat(elem.css('marginLeft')) + parseFloat(elem.css('paddingLeft')) - scrollLeft + 'px'
             });
 
             if (this.options.onFixed && typeof this.options.onFixed === 'function') {
@@ -85,7 +92,7 @@
         },
 
         _handleResize: function() {
-
+            this._handleScroll();
         }
     };
 
