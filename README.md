@@ -2,13 +2,27 @@
 
 > A jQuery plugin that enables a label to be nailed in the loacation you want.
 
+## Installing with NPM
+
+``` bash
+$ npm install jquery.nail --save
+```
+
+## Installing with Bower
+
+``` bash
+$ bower install jquery.nail --save
+```
+
 ## Demo
 
-暂时还没有。
+Not yet.
 
 ## Browser Support
 
-``Chrome`` ``Firefox`` ``Safari``
+``Chrome``
+``Firefox``
+``Safari``
 
 ## How to use
 
@@ -18,7 +32,7 @@ Simply include the `jquery.nail.min.js` file and place the following in the he
 
 ``` javascript
 $(function() {
-    $('#box').nail();
+  $('#box').nail();
 });
 ```
 
@@ -26,17 +40,17 @@ $(function() {
 
 ``` javascript
 $(function() {
-    $('#box').nail({
-        onTop: function(elem) {
-            elem.css('background', '#869EB5');
-        },
-        onBottom: function(elem) {
-            elem.css('background', 'rgb(34, 89, 58)');
-        },
-        onFixed: function(elem) {
-            elem.css('background', '#000');
-        }
-    });
+  $('#box').nail({
+    onTop: function(elem) {
+      elem.css('background', '#869EB5');
+    },
+    onBottom: function(elem) {
+      elem.css('background', 'rgb(34, 89, 58)');
+    },
+    onFixed: function(elem) {
+      elem.css('background', '#000');
+    }
+  });
 });
 ```
 
