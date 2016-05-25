@@ -1,0 +1,14 @@
+{
+  "name": "jquery.nail",
+  "home": "https://github.com/cobish/jquery.nail",
+  "version": "1.0.0",
+  "description": "A jQuery plugin that enables a label to be nailed in the loacation you want.",
+  "authors": [
+    "cobish <cobish110@gmail.com>"
+  ],
+  "main": "dist/jquery.nail.min.js",
+  "license": "MIT",
+  "ignore": [
+    "node_modules"
+  ]
+}
