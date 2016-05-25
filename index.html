@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jquery.nail demo - cobish</title>
+        <link rel="stylesheet" href="./css/index.css" />
+    </head>
+    <body>
+        <h1><a href="https://github.com/cobish/jquery.nail">jquery.nail</a></h1>
+        <div class="main-box">
+            <div class="left-box">
+                <ul id="leftNav">
+                    <li>one</li>
+                    <li>two</li>
+                    <li>three</li>
+                    <li>four</li>
+                    <li>five</li>
+                    <li>six</li>
+                </ul>
+            </div>
+            <div class="right-box">
+                <div><p>your content</p></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <script src="./dist/lib/jquery-1.11.1.min.js"></script>
+        <script src="./dist/jquery.nail.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#leftNav').nail({
+                    onTop: function(elem) {
+                        elem.find('li:nth-child(3)').html('我在顶部');
+                        elem.css('background', '#869EB5');
+                    },
+                    onFixed: function(elem) {
+                        elem.find('li:nth-child(3)').html('我被固定住了');
+                        elem.css('background', 'rgb(34, 89, 58)');
+                    },
+                    onBottom: function(elem) {
+                        elem.find('li:nth-child(3)').html('我到底部了');
+                        elem.css('background', '#000');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
