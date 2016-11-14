@@ -9,6 +9,7 @@
         init: function(elem, options) {
             this.options = $.extend({
                 elem: $(elem),
+                fixTop: 0,
                 subElem: $(elem).parent(),
                 oWindow: $(window),
                 onTop: function(elem) {
@@ -48,14 +49,15 @@
                 subElemLeft = this.options.subElem.offset().left,
                 subElemHeight = this.defaults.subElemHeight,
                 elem = this.options.elem,
-                subElem = this.options.subElem;
+                subElem = this.options.subElem,
+                fixTop = this.options.fix;
 
             // 滚到顶部
-            if (scrollTop <= subElemTop) {
+            if (scrollTop + fixTop <= subElemTop) {
                 elem.css({
                     position: 'absolute',
                     top: 0,
-                    left: parseFloat(elem.css('marginLeft')) + parseFloat(elem.css('paddingLeft')) + 'px'
+                    left: 0
                 });
 
                 if (this.options.onTop && typeof this.options.onTop === 'function') {
@@ -66,11 +68,11 @@
             }
 
             // 滚到底部
-            if (scrollTop >= subElemTop + subElemHeight - elemHeight) {
+            if (scrollTop + fixTop >= subElemTop + subElemHeight - elemHeight) {
                 elem.css({
                     position: 'absolute',
                     top: subElemHeight - elemHeight + 'px',
-                    left: parseFloat(elem.css('marginLeft')) + parseFloat(elem.css('paddingLeft')) + 'px'
+                    left: 0
                 });
 
                 if (this.options.onBottom && typeof this.options.onBottom === 'function') {
@@ -82,8 +84,8 @@
 
             elem.css({
                 position: 'fixed',
-                top: 0,
-                left: subElemLeft + parseFloat(elem.css('marginLeft')) + parseFloat(elem.css('paddingLeft')) - scrollLeft + 'px'
+                top: fixTop + 'px',
+                left: subElemLeft - scrollLeft + 'px'
             });
 
             if (this.options.onFixed && typeof this.options.onFixed === 'function') {
