@@ -32,6 +32,7 @@
             };
 
             var self = this;
+            self._handleResize();
 
             this.options.oWindow.on('scroll', function() {
                 self._handleScroll();
