@@ -1,6 +1,6 @@
 {
   "name": "jquery.nail",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "A simple jQuery nail plugin.",
   "description": "A jQuery plugin that enables a label to be nailed in the loacation you want.",
   "repository": {
