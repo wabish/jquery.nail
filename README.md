@@ -16,7 +16,7 @@ $ bower install jquery.nail --save
 
 ## Demo
 
-[http://cobish.github.io/jquery.nail/](http://cobish.github.io/jquery.nail/)
+[http://wabish.github.io/jquery.nail/](http://wabish.github.io/jquery.nail/)
 
 
 ## Browser Support
